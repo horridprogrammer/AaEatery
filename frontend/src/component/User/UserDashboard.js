@@ -15,7 +15,7 @@ const UserDashboard = () => {
         <div className="dashboard-actions">
           <button
             className="dashboard-btn"
-            onClick={() => navigate("/products")}
+            onClick={() => navigate("/user/displayProduct")}
           >
             🍰 Browse Products
           </button>

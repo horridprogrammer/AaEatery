@@ -8,6 +8,8 @@ import ProductInventory from "./component/Admin/product/ProductInventory";
 import AddProduct from "./component/Admin/product/AddProduct";
 import UpdateProduct from "./component/Admin/product/UpdateProduct";
 import UserDashboard from "./component/User/UserDashboard";
+import DisplayProduct from "./component/Users/product/DisplayProduct";
+import Product from "./component/Users/product/Product";
 
 function App() {
   return (
@@ -55,6 +57,18 @@ function App() {
           path="/user/dashboard"
           element={
             <UserDashboard/>
+          }
+        ></Route>
+        <Route
+          path="/user/displayProduct"
+          element={
+            <DisplayProduct/>
+          }
+        ></Route>
+        <Route
+          path="/user/product/:id"
+          element={
+            <Product/>
           }
         ></Route>
       </Routes>
