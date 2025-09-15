@@ -1,0 +1,85 @@
+/* Cake Theme with Admin touch */
+
+.add-user-container {
+  background: #fff0f5; /* Pastel pink */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.add-user-form {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 90%;
+}
+
+.add-user-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #d2691e; /* Chocolate brown */
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 16px;
+  color: #d2691e;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-group input {
+  padding: 12px;
+  border: 1px solid #e4c6d9;
+  border-radius: 12px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s ease;
+  background: #fff8fa;
+}
+
+.form-group input:focus {
+  border-color: #ff91a4;
+  box-shadow: 0 0 5px rgba(255, 145, 164, 0.5);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #ff91a4, #ff69b4); /* Pink gradient */
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(90deg, #ff69b4, #ff1493); /* Darker hover */
+  transform: scale(1.02);
+}
+
+@media (max-width: 480px) {
+  .add-user-form {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .add-user-title {
+    font-size: 24px;
+  }
+}

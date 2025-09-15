@@ -1,0 +1,95 @@
+/* Container */
+.add-product-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 25px;
+  background-color: #fff0f5; /* Soft pastel pink */
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
+  color: #4a2c2a; /* Chocolate brown text */
+}
+
+/* Title */
+.add-product-title {
+  text-align: center;
+  font-size: 26px;
+  color: #d2691e; /* Chocolate-brown heading */
+  margin-bottom: 20px;
+}
+
+/* Form layout */
+.add-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Label styling */
+.form-group label {
+  font-weight: 500;
+  color: #d2691e;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* Inputs and Select */
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ffd6e7;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  background: #fff;
+  transition: 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #ff91a4;
+  box-shadow: 0 0 6px rgba(255, 145, 164, 0.4);
+}
+
+/* Buttons group */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* Back button */
+.back-btn {
+  background: #ff91a4;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #ff6f91;
+}
+
+/* Add button */
+.add-btn {
+  background: linear-gradient(135deg, #ff6f91, #ff91a4);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.add-btn:hover {
+  background: linear-gradient(135deg, #ff4d6d, #ff6f91);
+}

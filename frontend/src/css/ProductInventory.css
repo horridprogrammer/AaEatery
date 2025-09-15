@@ -1,0 +1,151 @@
+/* 🌸 Cake Theme - Pastel, Sweet and Clean */
+
+/* Main container */
+.cake-inventory-container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fff0f5; /* Light pastel pink */
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Header Section */
+.cake-inventory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.cake-inventory-header h1 {
+  color: #d2691e; /* Chocolate Brown */
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(210, 105, 30, 0.1);
+}
+
+/* Add Button */
+.add-btn {
+  background: linear-gradient(90deg, #ffb6c1, #ff69b4);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.add-btn:hover {
+  background: linear-gradient(90deg, #ff69b4, #ff1493);
+}
+
+/* Table Wrapper */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+}
+
+/* Table */
+.cake-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.cake-table th,
+.cake-table td {
+  padding: 12px 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.cake-table th {
+  background-color: #ffb6c1;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.cake-table tr:nth-child(even) {
+  background-color: #fff8fb;
+}
+
+.cake-table tr:hover {
+  background-color: #ffe6f0;
+  transition: 0.3s ease;
+}
+
+/* Image Styling */
+.cake-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid #ffd1dc;
+}
+
+.no-image {
+  font-size: 12px;
+  color: #999;
+  font-style: italic;
+}
+
+/* Category cell */
+.category-cell {
+  font-weight: 500;
+  color: #d2691e;
+  text-transform: capitalize;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.update-btn,
+.delete-btn {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.3s ease;
+}
+
+/* Update Button */
+.update-btn {
+  background: #ffdab9;
+  color: #d2691e;
+}
+
+.update-btn:hover {
+  background: #ffcba4;
+}
+
+/* Delete Button */
+.delete-btn {
+  background: #ff6961;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #ff4f4f;
+}
+
+/* Empty Data */
+.no-data {
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+  color: #888;
+  font-style: italic;
+}
+
