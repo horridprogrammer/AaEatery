@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../../../css/Product.css"; // Import cake theme CSS
 
 const Product = () => {
   const { id } = useParams();
   const [data, setData] = useState({});
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchDetail = async (id) => {
       try {
@@ -21,6 +21,19 @@ const Product = () => {
     };
     fetchDetail(id);
   }, [id]);
+
+  const handleAddToCart = async ()=>{
+    const token = localStorage.getItem("token");
+    const response = await axios.post("http://localhost:8080/api/cart",null,{
+      params:{
+        proId:  data.id,
+        email: localStorage.getItem("email")
+      },
+      headers:{
+        Authorization: `Bearer ${token}`
+      }
+    })
+  }
 
   return (
     <div className="cake-product-container">
@@ -40,8 +53,9 @@ const Product = () => {
           <p><strong>Stock:</strong> {data.stock}</p>
         </div>
         <div className="cake-product-buttons">
-          <button className="cake-btn add-cart">Add to Cart</button>
+          <button className="cake-btn add-cart" onClick={handleAddToCart}>Add to Cart</button>
           <button className="cake-btn buy-now">Buy Now</button>
+          <button className="cake-btn back" onClick={()=>navigate(-1)}>Back</button>
         </div>
       </div>
     </div>

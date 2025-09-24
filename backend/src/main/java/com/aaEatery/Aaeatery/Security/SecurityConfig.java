@@ -42,12 +42,15 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // Preflight requests
                         .requestMatchers("/api/auth/**").permitAll() // Public endpoints
+                        .requestMatchers("/api/cart/**").hasAnyRole("USER","ADMIN")
                         .requestMatchers(HttpMethod.PUT,"/api/users/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST,"/api/users/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE,"/api/users/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST,"/api/products").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT,"/api/products").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE,"/api/products").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST,"/api/orders").hasAnyRole("ADMIN","USER")
+                        .requestMatchers(HttpMethod.PUT,"/api/orders/**").hasAnyRole("ADMIN","USER")
                         .anyRequest().authenticated()
                 );
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

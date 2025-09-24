@@ -33,6 +33,10 @@ public class UserService {
         return userrepo.findById(id).orElse(null);
     }
 
+    public User getUserByEmail(String email){
+        return userrepo.findByEmail(email).orElse(null);
+    }
+
     public void deleteUser(Long id){
         userrepo.deleteById(id);
     }

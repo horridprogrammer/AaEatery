@@ -1,78 +1,85 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import './App.css';
 import Login from './component/Login/Login';
-import AddUser from './component/Users/AddUser';
+
+// Admin imports
 import AdminDashboard from "./component/Admin/AdminDashboard";
 import ProtectedRoute from "./component/Admin/ProtectedRoute";
 import ProductInventory from "./component/Admin/product/ProductInventory";
 import AddProduct from "./component/Admin/product/AddProduct";
 import UpdateProduct from "./component/Admin/product/UpdateProduct";
+import AddUser from "./component/Users/AddUser";
+import AdminLayout from "./component/Admin/AdminLayout";
+
+// User imports
 import UserDashboard from "./component/User/UserDashboard";
 import DisplayProduct from "./component/Users/product/DisplayProduct";
 import Product from "./component/Users/product/Product";
+import Cart from "./component/Users/product/Cart";
+import OrderPlacement from "./component/Users/product/OrderPlacement";
+import OrderPage from "./component/Users/product/OrderPage";
+import UserLayout from "./component/Users/UserLayout";
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" element={<Login/>}></Route>
+    <Routes>
+      <Route path="/" element={<Navigate to="/login" />} />
+      <Route path="/login" element={<Login />} />
 
-        {/* Admin Route */}
+      {/* Admin Routes */}
+      <Route path="/admin" element={<AdminLayout />}>
         <Route
-          path="/admin/dashboard"
+          path="dashboard"
           element={
             <ProtectedRoute role="ADMIN">
-              <AdminDashboard/>
+              <AdminDashboard />
             </ProtectedRoute>
           }
-        ></Route>
-        <Route 
-          path="/admin/product"
-          element={
-            <ProtectedRoute role="ADMIN">
-              <ProductInventory/>
-            </ProtectedRoute>
-          }
-        ></Route>
+        />
         <Route
-          path="/admin/addproduct"
+          path="product"
           element={
             <ProtectedRoute role="ADMIN">
-              <AddProduct/>
+              <ProductInventory />
             </ProtectedRoute>
           }
-        ></Route>
+        />
         <Route
-          path="/admin/updateproduct/:id"
+          path="addproduct"
           element={
             <ProtectedRoute role="ADMIN">
-              <UpdateProduct/>
+              <AddProduct />
             </ProtectedRoute>
           }
-        ></Route>
+        />
+        <Route
+          path="updateproduct/:id"
+          element={
+            <ProtectedRoute role="ADMIN">
+              <UpdateProduct />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="adduser"
+          element={
+            <ProtectedRoute role="ADMIN">
+              <AddUser />
+            </ProtectedRoute>
+          }
+        />
+      </Route>
 
-        {/* User Route */}
-        <Route
-          path="/user/dashboard"
-          element={
-            <UserDashboard/>
-          }
-        ></Route>
-        <Route
-          path="/user/displayProduct"
-          element={
-            <DisplayProduct/>
-          }
-        ></Route>
-        <Route
-          path="/user/product/:id"
-          element={
-            <Product/>
-          }
-        ></Route>
-      </Routes>
-    </div>
+      {/* User Routes */}
+      <Route path="/user" element={<UserLayout />}>
+        <Route path="dashboard" element={<UserDashboard />} />
+        <Route path="displayProduct" element={<DisplayProduct />} />
+        <Route path="product/:id" element={<Product />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="placeOrder" element={<OrderPlacement />} />
+        <Route path="myOrders" element={<OrderPage />} />
+      </Route>
+    </Routes>
   );
 }
 

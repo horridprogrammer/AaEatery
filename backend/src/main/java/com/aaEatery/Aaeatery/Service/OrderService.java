@@ -20,6 +20,16 @@ public class OrderService {
         return orderrepo.save(order);
     }
 
+    public List<Order> getOrdersByUserEmail(String email){
+        return orderrepo.findByUserEmail(email);
+    }
+
+    public Order updateOrder(Long id,String address){
+        Order existing = orderrepo.findById(id).orElse(null);
+        existing.setDeliveryAddress(address);
+        return orderrepo.save(existing);
+    }
+
     public List<Order> getOrdersByUser(Long userId) {
         return orderrepo.findByUserId(userId);
     }
