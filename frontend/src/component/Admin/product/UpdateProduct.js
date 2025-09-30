@@ -20,7 +20,7 @@ const UpdateProduct = () => {
     const fetchProduct = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get(`http://localhost:8080/api/products/${id}`, {
+        const response = await axios.get(`${process.env.BACKEND_URL}/api/products/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -37,7 +37,7 @@ const UpdateProduct = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      await axios.put(`http://localhost:8080/api/products/${id}`, product, {
+      await axios.put(`${process.env.BACKEND_URL}/api/products/${id}`, product, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -12,7 +12,7 @@ const OrdersPage = () => {
         const email = localStorage.getItem("email");
 
         const response = await axios.get(
-          `http://localhost:8080/api/orders/user/${email}`,
+          `${process.env.BACKEND_URL}/api/orders/user/${email}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

@@ -14,7 +14,7 @@ const Cart = () => {
 
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/cart/user/${email}`,
+          `${process.env.BACKEND_URL}/api/cart/user/${email}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -53,7 +53,7 @@ const Cart = () => {
             newQuantity += 1;
             axios
               .post(
-                "http://localhost:8080/api/cart",
+                `${process.env.BACKEND_URL}/api/cart`,
                 null,
                 {
                   params: {
@@ -68,7 +68,7 @@ const Cart = () => {
         } else if (action === "-") {
           newQuantity -= 1;
           axios
-            .delete(`http://localhost:8080/api/cart/${id}`, {
+            .delete(`${process.env.BACKEND_URL}/api/cart/${id}`, {
               headers: { Authorization: `Bearer ${token}` },
             })
             .catch((err) => console.error("Error deleting item:", err));
@@ -90,7 +90,7 @@ const Cart = () => {
       const token = localStorage.getItem("token");
       const email = localStorage.getItem("email");
 
-      const userResponse = await axios.get(`http://localhost:8080/api/users/${email}`, {
+      const userResponse = await axios.get(`${process.env.BACKEND_URL}/api/users/${email}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -111,7 +111,7 @@ const Cart = () => {
 
       console.log("Sending order:", orderData);
 
-      const response = await axios.post("http://localhost:8080/api/orders", orderData, {
+      const response = await axios.post(`${process.env.BACKEND_URL}/api/orders`, orderData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

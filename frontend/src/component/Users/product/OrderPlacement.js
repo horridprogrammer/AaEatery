@@ -29,7 +29,7 @@ const OrderPlacement = () => {
 
       // Update order delivery address (plain text body)
       await axios.put(
-        `http://localhost:8080/api/orders/${latestOrder.id}`,
+        `${process.env.BACKEND_URL}/api/orders/${latestOrder.id}`,
         {
             deliveryAddress: add,
             paymentStatus: "PAID"
@@ -43,7 +43,7 @@ const OrderPlacement = () => {
       );
 
       // Clear the cart after placing the order
-      const del = await axios.delete(`http://localhost:8080/api/cart/clear/${email}`, {
+      const del = await axios.delete(`${process.env.BACKEND_URL}/api/cart/clear/${email}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

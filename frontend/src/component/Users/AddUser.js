@@ -16,7 +16,7 @@ const AddUser = () => {
       const token = localStorage.getItem("token");
       console.log("Token being sent:", token);
 
-      const response = await axios.post("http://localhost:8080/api/users", formData, {
+      const response = await axios.post(`${process.env.BACKEND_URL}/api/users`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",

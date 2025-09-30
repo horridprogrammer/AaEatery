@@ -11,7 +11,7 @@ const Product = () => {
     const fetchDetail = async (id) => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get(`http://localhost:8080/api/products/${id}`, {
+        const response = await axios.get(`${process.env.BACKEND_URL}/api/products/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setData(response.data);
@@ -24,7 +24,7 @@ const Product = () => {
 
   const handleAddToCart = async ()=>{
     const token = localStorage.getItem("token");
-    const response = await axios.post("http://localhost:8080/api/cart",null,{
+    const response = await axios.post(`${process.env.BACKEND_URL}/api/cart`,null,{
       params:{
         proId:  data.id,
         email: localStorage.getItem("email")
@@ -41,7 +41,7 @@ const Product = () => {
         <h1 className="cake-product-title">{data.name}</h1>
         <div className="cake-product-image-wrapper">
           <img
-            src={`http://localhost:8080/uploads/${data.imageUrl}`}
+            src={`${process.env.BACKEND_URL}/uploads/${data.imageUrl}`}
             alt={data.name}
             className="cake-product-image"
           />
